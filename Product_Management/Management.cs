@@ -39,7 +39,7 @@ namespace Product_Management
             //                             (productReviews.ProductId ==9 && productReviews.Rating > 3)
             //                             select productReviews
         }
-
+        //UC4
         public void RetriveCount(List<ProductReview> ListProductReview)
         {
             var RetriveCount = ListProductReview.GroupBy(x => x.ProductId).Select(x => new { ProductId = x.Key, Count = x.Count() });
@@ -48,6 +48,15 @@ namespace Product_Management
                 Console.WriteLine(list.ProductId + " -----" + list.Count);
             }
         }
-        
+        //UC5
+        public void RetrieveProductAndReview(List<ProductReview> ListProductReview)
+        {
+            var RetrieveProductAndReview = from productReviews in ListProductReview
+                                           select new { productReviews.ProductId, productReviews.Review };
+            foreach (var list in RetrieveProductAndReview)
+            {
+                Console.WriteLine("ProductId"+ " "+ list.ProductId + " " +"Review"+" "+ list.Review);
+            }
+        }
     }
 }
