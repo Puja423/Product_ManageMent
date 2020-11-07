@@ -58,5 +58,17 @@ namespace Product_Management
                 Console.WriteLine("ProductId"+ " "+ list.ProductId + " " +"Review"+" "+ list.Review);
             }
         }
+        //UC6
+        public void SkipRecord(List<ProductReview> ListProductReview)
+        {
+            var SkipRecord = (from productReviews in ListProductReview
+                              orderby productReviews.ProductId, productReviews.UserId, productReviews.Rating, productReviews.Review, productReviews.islike descending
+                              select productReviews).Skip(5);
+            foreach (var list in SkipRecord)
+            {
+                Console.WriteLine("ProductID:-" + list.ProductId + " " + "UserID:-" + list.UserId + " " + "Rating:-" + " " + list.Rating + " " + "Review:-" + list.Review + " " + "islike:-" + list.islike);
+            }
+
+        }
     }
 }

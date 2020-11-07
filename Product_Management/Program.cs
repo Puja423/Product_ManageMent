@@ -43,6 +43,8 @@ namespace Product_Management
             management.RetriveCount(productReviewList);
             //UC5
             management.RetrieveProductAndReview(productReviewList);
+            //UC6
+            management.SkipRecord(productReviewList);
         }
     }
 }
